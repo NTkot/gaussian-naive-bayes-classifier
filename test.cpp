@@ -16,7 +16,12 @@ int main() {
                   3.0, 3.0, 3.0,
                   0.3, 0.3, 0.3;
     trainDataY << 1, 0, 1, 0, 1, 0;
+    
+    auto b1 = chrono::high_resolution_clock::now();
     GNBC nbc(trainDataX, trainDataY);
+    auto b2 = chrono::high_resolution_clock::now();
+    cout << "Declaration and training duration = " << chrono::duration_cast<chrono::microseconds>(b2 - b1).count() << "μs" << endl;
+   
     nbc.printCoefficients();
     
 
