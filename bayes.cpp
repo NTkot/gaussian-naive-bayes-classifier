@@ -44,11 +44,8 @@ Eigen::VectorXf GNBC::predict(const Eigen::VectorXf &X) {
 
 Eigen::MatrixXf GNBC::predictMatrix(const Eigen::MatrixXf &X) {
     Eigen::MatrixXf probs = Eigen::MatrixXf::Zero(X.rows(), numberOfClasses);
-    float Z;
-    for(int i = 0; i < X.rows(); i++) {
-        Z = classesPropabilities.cwiseProduct(gauss(X.row(i).transpose())).sum();
+    for(int i = 0; i < X.rows(); i++)
         probs.row(i) = predict(X.row(i).transpose()).transpose();
-    }
     return probs;
 }
 
