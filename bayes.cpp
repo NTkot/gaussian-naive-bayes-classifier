@@ -10,18 +10,13 @@ GNBC::GNBC() {
     numberOfFeatures = 0;
 }
 
-GNBC::GNBC(int numberOfClasses, int numberOfFeatures) {
-    this->numberOfClasses = numberOfClasses;
-    this->numberOfFeatures = numberOfFeatures;
-}
-
 GNBC::GNBC(Eigen::MatrixXf &trainDataX, Eigen::VectorXi &trainDataY) {
-    numberOfFeatures = trainDataX.cols();
-    numberOfClasses = trainDataY.maxCoeff() + 1;
     train(trainDataX, trainDataY);
 }
 
 void GNBC::train(Eigen::MatrixXf &trainDataX, Eigen::VectorXi &trainDataY) {
+    numberOfFeatures = trainDataX.cols();
+    numberOfClasses = trainDataY.maxCoeff() + 1;
     means = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
     variances = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
     numberOfExamples = Eigen::VectorXi::Zero(numberOfClasses);

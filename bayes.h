@@ -14,7 +14,6 @@ class GNBC {
 
     public:
         GNBC();
-        GNBC(int numberOfClasses, int numberOfFeatures);
         GNBC(Eigen::MatrixXf &trainDataX, Eigen::VectorXi &trainDataY);
         
         void train(Eigen::MatrixXf &trainDataX, Eigen::VectorXi &trainDataY);
