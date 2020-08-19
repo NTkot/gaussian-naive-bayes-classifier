@@ -13,23 +13,19 @@ GNBC::GNBC() {
 GNBC::GNBC(int numberOfClasses, int numberOfFeatures) {
     this->numberOfClasses = numberOfClasses;
     this->numberOfFeatures = numberOfFeatures;
-    means = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
-    variances = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
-    numberOfExamples = Eigen::VectorXi::Zero(numberOfClasses);
-    classesPropabilities = Eigen::VectorXf::Zero(numberOfClasses);
 }
 
 GNBC::GNBC(Eigen::MatrixXf &trainDataX, Eigen::VectorXi &trainDataY) {
     numberOfFeatures = trainDataX.cols();
     numberOfClasses = trainDataY.maxCoeff() + 1;
-    means = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
-    variances = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
-    numberOfExamples = Eigen::VectorXi::Zero(numberOfClasses);
-    classesPropabilities = Eigen::VectorXf::Zero(numberOfClasses);
     train(trainDataX, trainDataY);
 }
 
 void GNBC::train(Eigen::MatrixXf &trainDataX, Eigen::VectorXi &trainDataY) {
+    means = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
+    variances = Eigen::Matrix<float, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor>::Zero(numberOfClasses, numberOfFeatures);
+    numberOfExamples = Eigen::VectorXi::Zero(numberOfClasses);
+    classesPropabilities = Eigen::VectorXf::Zero(numberOfClasses);
     if(trainDataX.rows() != trainDataY.size()) {
         std::cerr << "TrainDataX and TrainDataY incompatible dimensions\n";
         return;
