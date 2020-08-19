@@ -1,6 +1,6 @@
 # Gaussian Naive Bayes Classifier
 
-A simple Gaussian Naive Bayes Classifier (GNBC) made using C++ [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.zip) library. Make sure to read the short-readme for its usage.
+A simple C++ Gaussian Naive Bayes Classifier (GNBC) library using [Eigen 3.3.7](https://gitlab.com/libeigen/eigen/-/archive/3.3.7/eigen-3.3.7.zip). Make sure to read the short-readme for its usage.
 
 #### Dependecies
 - Eigen 3.3.7
