@@ -6,11 +6,11 @@ A simple C++ Gaussian Naive Bayes Classifier (GNBC) library using [Eigen 3.3.7](
 - Eigen 3.3.7
 
 #### Installation
-Clone and compile .cpp file along with your "main.cpp" file.
-
-You can test the library by compiling test.cpp (with bayes.cpp).
+Include header file and compile .cpp file along with your "main.cpp" file.  
+**You may need to change the include path of your Eigen library**.  
 
 #### Usage
+You can test the library by compiling test.cpp (with bayes.cpp).  
 
 ###### Training
 Declare a class object-classifier and train it using the following line:  
@@ -38,4 +38,6 @@ or
   `predictions`: MatrixXf that contains probabilities for every observation for each class (with dimension = n*numberOfClasses)  
   `labels`: Contains indexes of classes predicted (indexes of predictions matrix that corresponds to the biggest probability row-wise)
 
-:warning: At training stage, **trainDataY** (integer vector containing outcomes of examples given) should follow **zero-based numbering**!
+You can view the *test.cpp* file for an example.
+
+:warning: At training stage, **trainDataY** (integer vector containing outcomes of examples given) should follow **zero-based numbering**!  
