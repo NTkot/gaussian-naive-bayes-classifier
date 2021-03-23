@@ -69,6 +69,14 @@ Eigen::VectorXi GNBC::labelMatrix(const Eigen::MatrixXf &predictionMatrix) {
     return indexes;
 }
 
+int GNBC::getNumberOfClasses() {
+    return numberOfClasses;
+}
+
+int GNBC::getNumberOfFeatures() {
+    return numberOfFeatures;
+}
+
 void GNBC::printCoefficients() {
     std::cout << "means =\n" << means << std::endl << std::endl
               << "variances =\n" << variances << std::endl << std::endl

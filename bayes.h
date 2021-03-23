@@ -22,6 +22,9 @@ class GNBC {
         Eigen::VectorXf gauss(const Eigen::VectorXf &X);
         int label(const Eigen::VectorXf &prediction);
         Eigen::VectorXi labelMatrix(const Eigen::MatrixXf &predictionMatrix);
+
+        int getNumberOfClasses();
+        int getNumberOfFeatures();
         void printCoefficients();
         void printSizes();
 };
